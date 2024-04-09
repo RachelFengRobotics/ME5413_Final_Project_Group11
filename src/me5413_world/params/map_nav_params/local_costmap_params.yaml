@@ -1,0 +1,19 @@
+local_costmap:
+   global_frame: map
+   robot_base_frame: base_link
+
+   width: 10.0
+   height: 10.0
+   resolution: 0.01
+   static_map: false
+   rolling_window: true
+
+   update_frequency: 10.0   # The frequency in Hz for the map to be updated.
+   publish_frequency: 5.0  # The frequency in Hz for the map to be publish display information.
+
+   plugins:
+      # - {name: static_layer,        type: "costmap_2d::StaticLayer"}
+      - {name: obstacle_layer,      type: "costmap_2d::ObstacleLayer"}
+      - {name: prohibition_layer,        type: "costmap_prohibition_layer_namespace::CostmapProhibitionLayer"} 
+      # - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}
+      - {name: inflater_layer, type: "costmap_2d::InflationLayer"}

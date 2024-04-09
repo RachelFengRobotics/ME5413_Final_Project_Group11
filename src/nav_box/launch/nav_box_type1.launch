@@ -1,0 +1,6 @@
+<launch>
+    <!-- 启动 object_follower_type2 节点 -->
+    <node name="object_follower" pkg="nav_box" type="object_follower_type1.py" output="screen">
+        
+    </node>
+</launch>

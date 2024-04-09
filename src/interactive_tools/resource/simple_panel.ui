@@ -75,7 +75,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Box</string>
+       <string>Packaging Area</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -400,7 +400,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Assembly Line</string>
+       <string>Line</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -443,6 +443,54 @@
       </property>
      </widget>
     </item>
+    <item row="4" column="1">
+     <widget class="QPushButton" name="pushButton_3_4">
+        <!-- Widget properties here -->
+        <property name="text">
+        <string>1</string>
+        </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QPushButton" name="pushButton_3_5">
+        <!-- Widget properties here -->
+        <property name="text">
+        <string>2</string>
+        </property>
+     </widget>
+    </item>
+    <item row="4" column="3">
+     <widget class="QPushButton" name="pushButton_3_6">
+        <!-- Widget properties here -->
+        <property name="text">
+        <string>3</string>
+        </property>
+     </widget>
+    </item>
+    <item row="4" column="4">
+     <widget class="QPushButton" name="pushButton_3_7">
+        <!-- Widget properties here -->
+        <property name="text">
+        <string>4</string>
+        </property>
+     </widget>
+    </item>  
+    <item row="4" column="5">
+     <widget class="QPushButton" name="pushButton_3_8">
+        <!-- Widget properties here -->
+        <property name="text">
+        <string>5</string>
+        </property>
+     </widget>
+    </item> 
+    <item row="1" column="5">
+     <widget class="QPushButton" name="pushButton_2_5">
+        <!-- Widget properties here -->
+        <property name="text">
+        <string>start</string>
+        </property>
+     </widget>
+    </item> 
     <item row="2" column="1">
      <widget class="QPushButton" name="pushButton_3_1">
       <property name="minimumSize">
@@ -475,8 +523,10 @@
        <string>1</string>
       </property>
      </widget>
-    </item>
+   </item>
    </layout>
+
+   
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
@@ -540,6 +590,8 @@
     </item>
    </layout>
   </widget>
+
+
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
@@ -616,6 +668,7 @@
        <string>Clear Objects</string>
       </property>
      </widget>
+   
     </item>
    </layout>
   </widget>

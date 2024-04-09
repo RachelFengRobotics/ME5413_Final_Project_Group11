@@ -324,10 +324,10 @@
   </xacro:if>
 
   <xacro:include filename="$(find jackal_description)/urdf/accessories/stereo_camera_mount.urdf.xacro" />
-  <!-- If enabled, generates a pair of flea3 cameras for stereo vision with a tilt of 30 degrees. -->
+  <!-- If enabled, generates a pair of flea3 cameras for stereo vision with a tilt of -5 degrees. -->
   <!-- Disabled temporarily due to metapackage issue. -->
-  <xacro:if value="$(optenv JACKAL_STEREO_FLEA3 0)">
-    <xacro:property name="tilt" value="$(optenv JACKAL_FLEA3_TILT 0.5236)"/>
+  <xacro:if value="$(optenv JACKAL_STEREO_FLEA3 1)">
+    <xacro:property name="tilt" value="$(optenv JACKAL_FLEA3_TILT -0.087266)"/>
     <xacro:property name="mount" value="$(optenv JACKAL_FLEA3_MOUNT front)"/>
     <xacro:property name="prefix" value="$(optenv JACKAL_FLEA3_PREFIX ${mount})"/>
     <xacro:property name="parent" value="$(optenv JACKAL_FLEA3_PARENT ${mount}_mount)"/>
@@ -388,7 +388,7 @@
         <child link="${prefix}_camera_mount" />
       </joint>
 
-      <joint name="${prefix}_camera_bracket_joint" type="fixed">
+      <joint name="${prefix}_camera_bracket_joint" type="fixed">Mount Enabled
         <origin xyz="0.007 0 0.02450" rpy="0 0 0" />
         <parent link="${prefix}_camera_beam" />
         <child link="${prefix}_camera" />

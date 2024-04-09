@@ -1,0 +1,29 @@
+map_type: costmap
+footprint: [[-0.31, -0.255], [-0.31, 0.255], [0.31, 0.255], [0.31, -0.255]] # add footprint_padding
+robot_base_frame: base_link
+transform_tolerance: 0.3
+
+obstacle_layer:
+  enabled: true
+  obstacle_range: 4.0     # maximum range sensor reading that whill result in an obstacle being put into the costmap
+  raytrace_range: 5.0     # taytrace the freespace in front of the robot
+  inflation_radius: 0.35 # distance around the obstacles with the same cost as obstacle
+  track_unknown_space: false
+  combination_method: 1
+  inf_is_valid: true
+
+  observation_sources: scan
+  scan: {sensor_frame: base_link, data_type: LaserScan, topic: /front/scan, marking: true, clearing: true, inf_is_valid: true}
+
+inflation_layer:
+  enabled:              true
+  cost_scaling_factor:  3.0  # exponential rate at which the obstacle cost drops off (default: 10)
+  inflation_radius:     0.35  # max. distance from an obstacle at which costs are incurred for planning paths.
+  
+prohibition_layer:
+  enabled: true 
+
+static_layer:
+  enabled:              true
+  map_topic:            "/map"
+

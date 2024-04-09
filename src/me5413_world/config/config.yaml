@@ -18,23 +18,7 @@ me5413_world:
     y: -4.7
     yaw: -1.57
 
-  # packing area poses
-  # packing_area_1:
-  #   x: 13.0
-  #   y: -0.6
-  #   yaw: -1.57
-  # packing_area_2:
-  #   x: 10.0
-  #   y: -0.6
-  #   yaw: -1.57
-  # packing_area_3:
-  #   x: 10.0
-  #   y: -3.5
-  #   yaw: -1.57
-  # packing_area_4:
-  #   x: 13.0
-  #   y: -3.5
-  #   yaw: -1.57
+
 
   # delivery vehicle poses
   vehicle_1:
@@ -49,3 +33,32 @@ me5413_world:
     x: 2.9
     y: -13.1
     yaw: 0.0
+
+  vehicle_4:
+    x: 8.0
+    y: 1
+    yaw: -0.785
+  vehicle_5:
+    x: 8.0
+    y: -6.25
+    yaw: 0.785
+
+    
+  
+  
+  vehicle_6:
+    x: 13.0
+    y: -6.25
+    yaw: 2.356
+  vehicle_7:
+    x: 16.0
+    y: 1
+    yaw: -2.356
+  vehicle_8:
+    x: 12.0
+    y: -3
+    yaw: -1.57
+  start_1:
+    x: 13.0
+    y: 1.6
+    yaw: -0.525

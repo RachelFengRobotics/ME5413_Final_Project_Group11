@@ -1,0 +1,27 @@
+global_costmap:
+  global_frame: map
+  static_map: true
+
+  always_send_full_costmap: true
+
+  update_frequency: 5.0   # The frequency in Hz for the map to be updated.
+  publish_frequency: 2.0  # The frequency in Hz for the map to be publish display information.
+  int_is_valid: true
+
+  plugins:
+     - {name: static_layer,            type: "costmap_2d::StaticLayer"}
+     - {name: obstacle_layer,          type: "costmap_2d::VoxelLayer"}
+     - {name: prohibition_layer,        type: "costmap_prohibition_layer_namespace::CostmapProhibitionLayer"}     
+    #  - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}
+     - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
+
+  recovery_behaviors:
+    - name: 'rotate_recovery'
+      type: 'rotate_revocery/RotateRecovery'
+    - name: 'reset_recovery'
+      type: 'clear_costmap_recovery/ClearCostmapRecovery'
+  
+  reset_recovery:
+    reset_distance: 0.0
+    layer_names: ["obstacle_layer"]
+
