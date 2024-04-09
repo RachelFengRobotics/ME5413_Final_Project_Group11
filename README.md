@@ -147,20 +147,20 @@ Then, in the second terminal:
 ```bash
 # Load a map and launch AMCL localizer
 roslaunch me5413_world navigation.launch
+```
 ![rviz_navigation_image](src/me5413_world/media/nav.png)
 
+```bash
 # Choose the five observation points base on your target box location
 Click the button on Rviz Panel
-
+```
 ![rviz_navigation_image](src/me5413_world/media/nav2.png)
 
+```bash
 # Use our vison algorithm to navigate towards the target box
 roslaunch nav_box nav_box_type2.launch
-![rviz_navigation_image](src/me5413_world/media/nav3.png)
 ```
-
 ![rviz_navigation_image](src/me5413_world/media/nav3.png)
-
 
 ## Contribution
 
