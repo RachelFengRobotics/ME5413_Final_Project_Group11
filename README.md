@@ -159,7 +159,7 @@ roslaunch nav_box nav_box_type2.launch
 ![rviz_navigation_image](src/me5413_world/media/nav3.png)
 ```
 
-![rviz_navigation_image](src/me5413_world/media/rviz_navigation.png)
+![rviz_navigation_image](src/me5413_world/media/nav3.png)
 
 
 ## Contribution
