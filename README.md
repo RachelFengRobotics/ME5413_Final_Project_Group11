@@ -177,7 +177,7 @@ rosrun map_server map_saver
 
 ![rviz_mapping_image](src/me5413_world/media/2loam.png)
 
-We also provide interfaces for algorithms such as `ALOAM`, `FLAOM`, `LEGO-LOAM`, etc. To run the above algorithms, please perform the following operations:
+We also provide interfaces for algorithms such as `ALOAM`, `Cartographer`, `LEGO-LOAM`, etc. To run the above algorithms, please perform the following operations:
 
 ```bash
 #Source
