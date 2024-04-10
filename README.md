@@ -97,7 +97,7 @@ There are two sources of models needed:
   cp -r ~/ME5413_Final_Project/src/me5413_world/models/* ~/.gazebo/models
   ```
 
-## Project Introduction
+# Project Introduction
 
 In this project, we used a Jackal car to achieve the basic functions of mapping and navigation in a mini factory. At the same time, we initially implemented the functions of exploration, target recognition, and tracking in the randomly generated box area of the factory. Specifically, our main work is as follows:
 
@@ -117,7 +117,7 @@ II. Navigation
 
 ![projworkflow_image](src/me5413_world/media/workflow.png)
 
-# Part I Mapping
+## Part I Mapping
 
 This command will launch the gazebo with the project world
 
@@ -136,6 +136,14 @@ roslaunch me5413_world manual.launch
 
 ![rviz_manual_image](src/me5413_world/media/rviz_manual.png)
 
+After finishing mapping, run the following command in the thrid terminal to save the map:
+
+```bash
+# Save the map as `my_map` in the `maps/` folder
+roscd me5413_world/maps/
+rosrun map_server map_saver -f my_map map:=/map
+```
+
 If you want to execute more mapping algorithms, you can use our pre recorded Ros bag and execute the following command in the directory of the mapping algorithm file we provide（Take FAST-LIO as example）:
 
 ```bash
@@ -146,26 +154,7 @@ rosbag play .bag
 ```
 ![rviz_mapping_image](src/me5413_world/media/fastlioo.png)
 
-# Part II Navgation
-
-After launching **Step 0**, in the second terminal:
-
-```bash
-# Launch GMapping
-roslaunch me5413_world mapping.launch
-```
-
-After finishing mapping, run the following command in the thrid terminal to save the map:
-
-```bash
-# Save the map as `my_map` in the `maps/` folder
-roscd me5413_world/maps/
-rosrun map_server map_saver -f my_map map:=/map
-```
-
-![rviz_nmapping_image](src/me5413_world/media/rviz_mapping.png)
-
-### 3. Navigation
+## Part II Navgation
 
 Once completed **gazebo with the project world**  and finished mapping and saved your map, quit the mapping process.
 
