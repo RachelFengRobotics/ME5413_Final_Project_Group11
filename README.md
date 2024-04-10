@@ -117,6 +117,8 @@ II. Navigation
 
 ![projworkflow_image](src/me5413_world/media/workflow.png)
 
+# Running the Project
+
 ## Part I Mapping
 
 This command will launch the gazebo with the project world
@@ -144,15 +146,35 @@ roscd me5413_world/maps/
 rosrun map_server map_saver -f my_map map:=/map
 ```
 
-If you want to execute more mapping algorithms, you can use our pre recorded Ros bag and execute the following command in the directory of the mapping algorithm file we provide（Take FAST-LIO as example）:
+If you want to execute more mapping algorithms, you can use our pre recorded Ros bag and execute the following command in the directory of the mapping algorithm file we provide（Take FAST-LIO & FLOAM as example）:
 
 ```bash
+# For FAST-LIO
 # Launch the mapping algorithms
 roslaunch mapping_velodyne.launch
 # Play our pre-recorded rosbag
 rosbag play .bag
 ```
+
+```bash
+# For FLOAM
+# Launch the mapping algorithms
+roslaunch .launch
+# Play our pre-recorded rosbag
+rosbag play .bag
+```
+
 ![rviz_mapping_image](src/me5413_world/media/fastlioo.png)
+
+We also provide interfaces for algorithms such as `ALOAM`, `FLAOM`, `LEGO-LOAM`, etc. To run the above algorithms, please perform the following operations:
+
+```bash
+#Source
+
+# Play our pre-recorded rosbag
+rosbag play .bag
+```
+
 
 ## Part II Navgation
 
