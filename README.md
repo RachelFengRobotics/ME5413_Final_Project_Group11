@@ -107,13 +107,15 @@ I. Mapping
 
 (2) Using 3D LiDAR algorithm to build a map of the mini factory, the algorithms used in this project include:`ALOAM`,`FLOAM`,`LEGO-LOAM`,`FAST-LIO`.
 
-(3) Compare the performance of various mapping algorithms to generate the final. pgm map for navigation planning.
+(3) Compare the performance of various mapping algorithms to generate the final`. pgm` map for navigation planning.
 
 II. Navigation
 
 (1) We used `AMCL` method to enable robots to achieve self localization，after that we use `A*` as the global planning algorithm on the constructed map and tested the performance of `DWA` and `TEB` as local planners respectively.
 
 (2) A navigation algorithm for randomly generated boxes was designed, and visual functionality was introduced using the `find_object_2D` ros package to achieve automatic exploration, target recognition, and navigation of the car in the target area.
+
+![rviz_manual_image](src/me5413_world/media/workflow.png)
 
 ### 0. Gazebo World
 
