@@ -208,6 +208,8 @@ You can also configure different local planning algorithms by modifying the. lau
 
 ```
 
+
+click the `Respwan` button on Rviz panel to randomly generate 9 boxes then we start to explore the box space
 ```bash
 # Choose the five observation points base on your target box location
 Click the button on Rviz Panel
