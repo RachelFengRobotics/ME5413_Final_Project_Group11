@@ -115,7 +115,7 @@ II. Navigation
 
 (2) A navigation algorithm for randomly generated boxes was designed, and visual functionality was introduced using the `find_object_2D` ros package to achieve automatic exploration, target recognition, and navigation of the car in the target area.
 
-![rviz_manual_image](src/me5413_world/media/workflow.png)
+![projworkflow_image](src/me5413_world/media/workflow.png)
 
 ### 0. Gazebo World
 
