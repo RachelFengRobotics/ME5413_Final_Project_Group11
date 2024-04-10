@@ -190,7 +190,7 @@ rosbag play .bag
 
 ## Part II Navgation
 
-Once completed **gazebo with the project world**  and finished mapping and saved your map, quit the mapping process.
+Once completed launching `gazebo with the project world`  and finished mapping and saved your map, quit the mapping process.
 
 Then, in the second terminal:
 
