@@ -100,12 +100,19 @@ There are two sources of models needed:
 ## Project Introduction
 
 In this project, we used a Jackal car to achieve the basic functions of mapping and navigation in a mini factory. At the same time, we initially implemented the functions of exploration, target recognition, and tracking in the randomly generated box area of the factory. Specifically, our main work is as follows:
+
 I. Mapping
-(1) Using 2D LiDAR algorithm to construct a map of the mini factory, the algorithms used in this project include:
-(2) Using 3D LiDAR algorithm to build a map of the mini factory, the algorithms used in this project include:
-(3) Compare the performance of various mapping algorithms to generate the final. pgm map for navigation planning
+
+(1) Using 2D LiDAR algorithm to construct a map of the mini factory, the algorithms used in this project include:`Cartographer`,`GMapping`.
+
+(2) Using 3D LiDAR algorithm to build a map of the mini factory, the algorithms used in this project include:`ALOAM`,`FLOAM`,`LEGO-LOAM`,`FAST-LIO`.
+
+(3) Compare the performance of various mapping algorithms to generate the final. pgm map for navigation planning.
+
 II. Navigation
-(1) We used A* as the global planning algorithm on the constructed map and tested the performance of DWA and TEB as local planners, respectively
+
+(1) We used `AMCL` method to enable robots to achieve self localization，after that we use `A*` as the global planning algorithm on the constructed map and tested the performance of `DWA` and `TEB` as local planners respectively.
+
 (2) A navigation algorithm for randomly generated boxes was designed, and visual functionality was introduced using the `find_object_2D` ros package to achieve automatic exploration, target recognition, and navigation of the car in the target area.
 
 ### 0. Gazebo World
