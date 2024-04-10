@@ -144,8 +144,9 @@ roslaunch mapping_velodyne.launch
 # Play our pre-recorded rosbag
 rosbag play .bag
 ```
-![rviz_mapping_image](src/me5413_world/media/rviz_manual.png)
-### 2. Mapping
+![rviz_mapping_image](src/me5413_world/media/fastlioo.png)
+
+# Part II Navgation
 
 After launching **Step 0**, in the second terminal:
 
@@ -166,7 +167,7 @@ rosrun map_server map_saver -f my_map map:=/map
 
 ### 3. Navigation
 
-Once completed **Step 2** mapping and saved your map, quit the mapping process.
+Once completed **gazebo with the project world**  and finished mapping and saved your map, quit the mapping process.
 
 Then, in the second terminal:
 
