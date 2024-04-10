@@ -3,7 +3,7 @@
 NUS ME5413 Autonomous Mobile Robotics Final Project
 > origin Authors: [Christina](https://github.com/ldaowen), [Yuhang](https://github.com/yuhang1008), [Dongen](https://github.com/nuslde), and [Shuo](https://github.com/SS47816)
 
-> Project group 11：Ma RuiQi，ChenHan，Bai ChengXi，LiuFu YuLiang，Zhong ZeRen，Zhang ZiRui
+> Project group 11：[Ma RuiQi](https://github.com/RachelFengRobotics)，[ChenHan](https://github.com/Hans1011)，[Bai ChengXi](https://github.com/roudanshuangfi)，[LiuFu YuLiang](https://github.com/YuliangLF)，[Zhong ZeRen](https://github.com/HardyPavel)，[Zhang ZiRui](https://github.com/daverui)
 
 ![Ubuntu 20.04](https://img.shields.io/badge/OS-Ubuntu_20.04-informational?style=flat&logo=ubuntu&logoColor=white&color=2bbc8a)
 ![ROS Noetic](https://img.shields.io/badge/Tools-ROS_Noetic-informational?style=flat&logo=ROS&logoColor=white&color=2bbc8a)
@@ -40,9 +40,9 @@ NUS ME5413 Autonomous Mobile Robotics Final Project
   * `jackal_navigation`
   * `velodyne_simulator`
   * `teleop_twist_keyboard`
-  * sudo apt-get install ros-noetic-teb-local-planner
-  * sudo apt-get install ros-noetic-rviz-imu-plugin
-  * sudo apt-get install ros-noetic-find-object-2d
+  * `teb planner`->sudo apt-get install ros-noetic-teb-local-planner
+  * `rviz-plugin`->sudo apt-get install ros-noetic-rviz-imu-plugin
+  * `find_object_2d`->sudo apt-get install ros-noetic-find-object-2d
   * And this [gazebo_model](https://github.com/osrf/gazebo_models) repositiory
 
 ## Installation
@@ -97,7 +97,16 @@ There are two sources of models needed:
   cp -r ~/ME5413_Final_Project/src/me5413_world/models/* ~/.gazebo/models
   ```
 
-## Usage
+## Project Introduction
+
+In this project, we used a Jackal car to achieve the basic functions of mapping and navigation in a mini factory. At the same time, we initially implemented the functions of exploration, target recognition, and tracking in the randomly generated box area of the factory. Specifically, our main work is as follows:
+I. Mapping
+(1) Using 2D LiDAR algorithm to construct a map of the mini factory, the algorithms used in this project include:
+(2) Using 3D LiDAR algorithm to build a map of the mini factory, the algorithms used in this project include:
+(3) Compare the performance of various mapping algorithms to generate the final. pgm map for navigation planning
+II. Navigation
+(1) We used A* as the global planning algorithm on the constructed map and tested the performance of DWA and TEB as local planners, respectively
+(2) A navigation algorithm for randomly generated boxes was designed, and visual functionality was introduced using the `find_object_2D` ros package to achieve automatic exploration, target recognition, and navigation of the car in the target area.
 
 ### 0. Gazebo World
 
