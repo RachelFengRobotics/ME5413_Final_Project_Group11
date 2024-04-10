@@ -163,6 +163,15 @@ roslaunch .launch
 # Play our pre-recorded rosbag
 rosbag play .bag
 ```
+after finish mapping FAST-LIO and FLOAM，the corresponding PCD file will be generated, and at this time, the. py file in the folder will be called for ground segmentation and other point cloud filtering. You can also try CloudCompare software, and then enter the pcd2pgm folder to perform the following operations:
+
+```bash
+# pcd to pgm
+# Launch the mapping algorithms
+roslaunch .launch
+# Play our pre-recorded rosbag
+rosbag play .bag
+```
 
 ![rviz_mapping_image](src/me5413_world/media/2loam.png)
 
@@ -189,6 +198,8 @@ roslaunch me5413_world navigation.launch
 # Load the template in “objects” folder
 ```
 ![rviz_navigation_image](src/me5413_world/media/nav.png)
+
+You can also configure different local planning algorithms by modifying the. launch file:
 
 ```bash
 # Choose the five observation points base on your target box location
