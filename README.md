@@ -163,7 +163,7 @@ roslaunch .launch
 # Play our pre-recorded rosbag
 rosbag play .bag
 ```
-after finish mapping FAST-LIO and FLOAM，the corresponding PCD file will be generated, and at this time, the. py file in the folder will be called for ground segmentation and other point cloud filtering. You can also try CloudCompare software, and then enter the pcd2pgm folder to perform the following operations:
+After finish mapping `FAST-LIO` and `FLOAM`，the corresponding PCD file will be generated, and at this time, the. py file in the folder will be called for ground segmentation and other point cloud filtering. You can also try CloudCompare software, and then enter the pcd2pgm folder to perform the following operations:
 
 ```bash
 # pcd to pgm
