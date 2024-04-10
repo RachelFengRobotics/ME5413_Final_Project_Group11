@@ -189,6 +189,19 @@ We are following:
 * [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#main),
 * [ROS C++ Style Guide](http://wiki.ros.org/CppStyleGuide)
 
+## Acknowledgements
+
+Here, We would like to express my gratitude to Prof. Marcelo H. Ang Jr from the NUS Advanced Robotics Centre, as well as all his teaching assistants. Thanks to every member of ME5413 Group 11 for their contributions during our project development. We utilized many ROS open-source codes in our project, and I hereby extend my thanks to their authors：
+
+- [Cartographer](https://github.com/cartographer-project/cartographer): A collection of mapping algorithms implemented in C++ by Google.
+- [ALOAM](https://github.com/AtsushiSakai/PythonRobotics.git): A collection of robotics algorithms implemented in Python.
+- [Fast-LIO](https://github.com/hku-mars/FAST_LIO.git): A computationally efficient and robust LiDAR-inertial odometry package by hku-mars group.
+- [pcd2pgm_package](https://github.com/Hinson-A/pcd2pgm_package.git): A package for converting `.pcd` files to `.pgm` files.
+- [costmap_prohibition_layer](https://github.com/rst-tu-dortmund/costmap_prohibition_layer.git): A package for prohibiting the robot from entering the area.
+- [FLOAM](https://github.com/wh200720041/floam): an optimized version of A-LOAM and LOAM with the computational cost reduced by up to 3 times. This code is modified from LOAM and A-LOAM.
+- [Find_object_2D](https://github.com/introlab/find-object): An integrated visual algorithm library for easy object detection.
+- [LEGO-LOAM](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM):a lightweight and ground optimized lidar odometry and mapping (LeGO-LOAM) system for ROS.
+
 ## License
 
 The [ME5413_Final_Project](https://github.com/NUS-Advanced-Robotics-Centre/ME5413_Final_Project) is released under the [MIT License](https://github.com/NUS-Advanced-Robotics-Centre/ME5413_Final_Project/blob/main/LICENSE)
