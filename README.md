@@ -117,7 +117,7 @@ II. Navigation
 
 ![projworkflow_image](src/me5413_world/media/workflow.png)
 
-### 0. Gazebo World
+# Part I Mapping
 
 This command will launch the gazebo with the project world
 
@@ -125,9 +125,6 @@ This command will launch the gazebo with the project world
 # Launch Gazebo World together with our robot
 roslaunch me5413_world world.launch
 ```
-
-### 1. Manual Control
-
 If you wish to explore the gazebo world a bit, we provide you a way to manually control the robot around:
 
 ```bash
@@ -139,6 +136,15 @@ roslaunch me5413_world manual.launch
 
 ![rviz_manual_image](src/me5413_world/media/rviz_manual.png)
 
+If you want to execute more mapping algorithms, you can use our pre recorded Ros bag and execute the following command in the directory of the mapping algorithm file we provide（Take FAST-LIO as example）:
+
+```bash
+# Launch the mapping algorithms
+roslaunch mapping_velodyne.launch
+# Play our pre-recorded rosbag
+rosbag play .bag
+```
+![rviz_mapping_image](src/me5413_world/media/rviz_manual.png)
 ### 2. Mapping
 
 After launching **Step 0**, in the second terminal:
