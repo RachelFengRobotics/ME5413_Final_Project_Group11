@@ -310,7 +310,7 @@ roslaunch nav_box nav_box_type2.launch
 ```
 
 ![rviz_navigation_image](src/me5413_world/media/nav_box.gif)
-![rviz_navigation_image](src/me5413_world/media/nav3.png)
+![rviz_navigation_image](src/me5413_world/media/Correction_After_Directional_Deviation.gif)
 
 ## Contribution
 
