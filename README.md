@@ -12,6 +12,10 @@ NUS ME5413 Autonomous Mobile Robotics Final Project
 ![GitHub Repo stars](https://img.shields.io/github/stars/NUS-Advanced-Robotics-Centre/ME5413_Final_Project?color=FFE333)
 ![GitHub Repo forks](https://img.shields.io/github/forks/NUS-Advanced-Robotics-Centre/ME5413_Final_Project?color=FFE333)
 
+<!-- > Video Presentation -->
+
+[![Watch the video](https://img.youtube.com/vi/TTfZJp_KL5U/maxresdefault.jpg)](https://www.youtube.com/watch?v=TTfZJp_KL5U)
+
 ![cover_image](src/me5413_world/media/gazebo_world.png)
 
 ## Dependencies
@@ -40,9 +44,9 @@ NUS ME5413 Autonomous Mobile Robotics Final Project
   * `jackal_navigation`
   * `velodyne_simulator`
   * `teleop_twist_keyboard`
-  * `teb planner`->sudo apt-get install ros-noetic-teb-local-planner
-  * `rviz-plugin`->sudo apt-get install ros-noetic-rviz-imu-plugin
-  * `find_object_2d`->sudo apt-get install ros-noetic-find-object-2d
+  * `teb planner`->`sudo apt-get install ros-noetic-teb-local-planner`
+  * `rviz-plugin`->`sudo apt-get install ros-noetic-rviz-imu-plugin`
+  * `find_object_2d`->`sudo apt-get install ros-noetic-find-object-2d`
   * And this [gazebo_model](https://github.com/osrf/gazebo_models) repositiory
 
 ## Installation
@@ -60,11 +64,20 @@ After forking this repo to your own github:
 ```bash
 # Clone your own fork of this repo (assuming home here `~/`)
 cd
-git clone https://github.com/<YOUR_GITHUB_USERNAME>/ME5413_Final_Project.git
+git clone https://github.com/RachelFengRobotics/ME5413_Final_Project_Group11.git
 cd ME5413_Final_Project
 
-# Install all dependencies
+# Install All Dependencies Required by the Original Project
 rosdep install --from-paths src --ignore-src -r -y
+
+# Install Some Additional Dependencies We Provided
+
+#teb planner
+sudo apt-get install ros-noetic-teb-local-planner
+#rviz-plugin
+sudo apt-get install ros-noetic-rviz-imu-plugin
+#find_object_2d
+sudo apt-get install ros-noetic-find-object-2d
 
 # Build
 catkin_make
@@ -82,10 +95,10 @@ There are two sources of models needed:
   # Create the destination directory
   cd
   mkdir -p .gazebo/models
-
+  
   # Clone the official gazebo models repo (assuming home here `~/`)
   git clone https://github.com/osrf/gazebo_models.git
-
+  
   # Copy the models into the `~/.gazebo/models` directory
   cp -r ~/gazebo_models/* ~/.gazebo/models
   ```
@@ -150,18 +163,34 @@ If you want to execute more mapping algorithms, you can use our pre recorded Ros
 
 ```bash
 # For FAST-LIO
-# Launch the mapping algorithms
+# First, you need to navigate to the directory of your FAST-LIO workspace, for example
+cd ~/FAST_LIO_ws
+source devel/setup.bash
+
+# Then, launch the mapping algorithms
 roslaunch mapping_velodyne.launch
+
 # Play our pre-recorded rosbag
-rosbag play .bag
+cd src/SLAM_result/data
+source devel/setup.bash
+rosbag play finaldata.bag --clock
 ```
+
+You can use [our optimized version of the FLOAM algorithm tailored for this project](https://github.com/RachelFengRobotics/FLOAM_Noetic_Indoor).
 
 ```bash
 # For FLOAM
-# Launch the mapping algorithms
-roslaunch .launch
+# First, you need to navigate to the directory of your FLOAM workspace, for example
+cd ~/floam_ws
+source devel/setup.bash
+
+# Then, launch the mapping algorithms
+roslaunch floam floam_velodyne.launch
+
 # Play our pre-recorded rosbag
-rosbag play .bag
+cd src/SLAM_result/data
+source devel/setup.bash
+rosbag play filtered_data.bag --clock
 ```
 After finish mapping `FAST-LIO` and `FLOAM`，the corresponding PCD file will be generated, and at this time, the. py file in the folder will be called for ground segmentation and other point cloud filtering. You can also try CloudCompare software, and then enter the pcd2pgm folder to perform the following operations:
 
@@ -180,10 +209,35 @@ rosrun map_server map_saver
 We also provide interfaces for algorithms such as `ALOAM`, `Cartographer`, `LEGO-LOAM`, etc. To run the above algorithms, please perform the following operations:
 
 ```bash
-#Source
+# For ALOAM
+# First, you need to navigate to the directory of your ALOAM workspace, for example
+cd ~/aloam_ws
+source devel/setup.bash
+
+# Then, launch the mapping algorithms
+roslaunch aloam_velodyne aloam_velodyne_VLP_16.launch
 
 # Play our pre-recorded rosbag
-rosbag play .bag
+cd src/SLAM_result/data
+source devel/setup.bash
+rosbag play filtered_data.bag --clock
+```
+
+Similarly, we recommend using [our optimized LeGO-LOAM code](https://github.com/RachelFengRobotics/LeGO-LOAM-Noetic) specifically tailored for this project.
+
+```bash
+# For LeGO-LOAM
+# First, you need to navigate to the directory of your LeGO-LOAM workspace, for example
+cd ~/lego_loam_ws
+source devel/setup.bash
+
+# Then, launch the mapping algorithms
+roslaunch lego_loam run.launch
+
+# Play our pre-recorded rosbag
+cd src/SLAM_result/data
+source devel/setup.bash
+rosbag play filtered_data.bag --clock
 ```
 
 ![rviz_mapping_image](src/me5413_world/media/mmap.png)
@@ -192,19 +246,48 @@ rosbag play .bag
 
 Once completed launching `gazebo with the project world`  and finished mapping and saved your map, quit the mapping process.
 
+Before beginning navigation, you need to create a folder named "objects" in your home directory to store template images for target matching:
+
+```bash
+cd ~
+mkdir ~/objects
+# Load the template in “objects” folder
+```
+
 Then, in the second terminal:
 
 ```bash
 # Load a map and launch AMCL localizer
 roslaunch me5413_world navigation.launch
-# Load the template in “objects” folder
 ```
 ![rviz_navigation_image](src/me5413_world/media/nav.png)
 
 You can also configure different local planning algorithms by modifying the. launch file:
 
 ```bash
+gedit ~/src/me5413_world/launch/navigation.launch &
+```
+
+We offer a total of six combinations with 2 global planners and 3 local planners. You can activate different planning configurations by uncommenting the respective lines. 
+
+By default, we use the A* global planner and the TEB local planner.
+
+```bash
 # modify launch file
+  <!-- Launch Move Base -->
+  <!-- <include file="$(find me5413_world)/launch/move_base.launch" /> -->
+  # Dijkstar + DWA
+  <!-- <include file="$(find me5413_world)/launch/move_base_global_dwa.launch" /> -->
+  # A* + DWA
+  <!-- <include file="$(find me5413_world)/launch/move_base_global_dwa_Astar.launch" /> -->
+  # Dijkstar + TP
+  <!-- <include file="$(find me5413_world)/launch/move_base_global_tp.launch" /> -->
+  # A* + TP
+  <!-- <include file="$(find me5413_world)/launch/move_base_global_tp_Astar.launch" /> -->
+  # Dijkstar + TRB
+  <!-- <include file="$(find me5413_world)/launch/move_base_global_teb.launch" /> -->
+  # A*+ TEB
+  <include file="$(find me5413_world)/launch/move_base_global_teb_Astar.launch" />
 
 ```
 
@@ -218,7 +301,8 @@ Click the button on Rviz Panel
 
 ```bash
 # Use our vison algorithm to navigate towards the target box
-roslaunch nav_box nav_box_type2.launch
+#Launch the Optimized Vision Matching Approach Node
+roslaunch nav_box nav_box_type2.launch  
 ```
 ![rviz_navigation_image](src/me5413_world/media/nav3.png)
 
@@ -243,7 +327,7 @@ Here, We would like to express my gratitude to Prof. Marcelo H. Ang Jr from the 
 - [costmap_prohibition_layer](https://github.com/rst-tu-dortmund/costmap_prohibition_layer.git): A package for prohibiting the robot from entering the area.
 - [FLOAM](https://github.com/wh200720041/floam): an optimized version of A-LOAM and LOAM with the computational cost reduced by up to 3 times. This code is modified from LOAM and A-LOAM.
 - [Find_object_2D](https://github.com/introlab/find-object): An integrated visual algorithm library for easy object detection.
-- [LEGO-LOAM](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM):a lightweight and ground optimized lidar odometry and mapping (LeGO-LOAM) system for ROS.
+- [LEGO-LOAM](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM): a lightweight and ground optimized lidar odometry and mapping (LeGO-LOAM) system for ROS.
 
 ## License
 
