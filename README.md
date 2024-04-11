@@ -194,18 +194,20 @@ cd src/SLAM_result/data
 source devel/setup.bash
 rosbag play filtered_data.bag --clock
 ```
-After finish mapping `FAST-LIO` and `FLOAM`，the corresponding PCD file will be generated, and at this time, the. py file in the folder will be called for ground segmentation and other point cloud filtering. You can also try CloudCompare software, and then enter the pcd2pgm folder to perform the following operations:
+After finish mapping `FAST-LIO` and `FLOAM`，the corresponding PCD file will be generated, and at this time, the. py file in the folder will be called for ground segmentation and other point cloud filtering. You can also try CloudCompare software, and then enter the [pcd2pgm](https://github.com/Hinson-A/pcd2pgm_package) folder to perform the following operations:
 
 ```bash
-# pcd to pgm
+# you may need to download pcd to pgm first:
+git clone https://github.com/Hinson-A/pcd2pgm_package.git
 cd pcd_to_pgm_ws
+# setting up the environment before use
 source devel/setup.bash
+# modify the run.launch file to save the map to your own path:<param name="file_directory" value= "/your own path" />
 # run pcd2pgm bag
 roslaunch pcd2pgm run.launch
 # save the map
 rosrun map_server map_saver
 ```
-
 ![rviz_mapping_image](src/me5413_world/media/2loam.png)
 
 We also provide interfaces for algorithms such as `ALOAM`, `Cartographer`, `LEGO-LOAM`, etc. To run the above algorithms, please perform the following operations:
