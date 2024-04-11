@@ -178,10 +178,9 @@ rosbag play finaldata.bag --clock
 
 You can use [our optimized version of the FLOAM algorithm tailored for this project](https://github.com/RachelFengRobotics/FLOAM_Noetic_Indoor).
 
-```bash
-
 ![rviz_mapping_image](src/me5413_world/media/FLOAM_Mapping.png)
 
+```bash
 # For FLOAM
 # First, you need to navigate to the directory of your FLOAM workspace, for example
 cd ~/floam_ws
@@ -228,10 +227,9 @@ rosbag play filtered_data.bag --clock
 
 Similarly, we recommend using [our optimized LeGO-LOAM code](https://github.com/RachelFengRobotics/LeGO-LOAM-Noetic) specifically tailored for this project.
 
-```bash
-
 ![rviz_mapping_image](src/me5413_world/media/LEGO_Mapping.png)
 
+```bash
 # For LeGO-LOAM
 # First, you need to navigate to the directory of your LeGO-LOAM workspace, for example
 cd ~/lego_loam_ws
