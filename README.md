@@ -12,11 +12,11 @@ NUS ME5413 Autonomous Mobile Robotics Final Project
 ![GitHub Repo stars](https://img.shields.io/github/stars/NUS-Advanced-Robotics-Centre/ME5413_Final_Project?color=FFE333)
 ![GitHub Repo forks](https://img.shields.io/github/forks/NUS-Advanced-Robotics-Centre/ME5413_Final_Project?color=FFE333)
 
-<!-- > Video Presentation -->
+<!-- > Our Video -->
+
+You can quickly understand the final outcomes of our project by watching this video demonstration：
 
 [![Watch the video](https://img.youtube.com/vi/TTfZJp_KL5U/maxresdefault.jpg)](https://www.youtube.com/watch?v=TTfZJp_KL5U)
-
-![cover_image](src/me5413_world/media/gazebo_world.png)
 
 ## Dependencies
 
