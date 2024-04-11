@@ -276,7 +276,7 @@ We offer a total of six combinations with 2 global planners and 3 local planners
 
 By default, we use the A* global planner and the TEB local planner.
 
-```bash
+```python
 # modify launch file
   <!-- Launch Move Base -->
   <!-- <include file="$(find me5413_world)/launch/move_base.launch" /> -->
